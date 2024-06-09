@@ -24,6 +24,7 @@ const Home = () => {
 
   const [prev, setPrev] = useState(board);
   const [prevColor, setPrevColor] = useState(1);
+  const [prevTurnCount, setPrevTurnCount] = useState(1);
 
   const directions = [
     [0, 1],
@@ -39,6 +40,7 @@ const Home = () => {
   const prevBoard = () => {
     setBoard(prev);
     setTurnColor(prevColor);
+    setTurnCount(prevTurnCount);
   };
 
   const boardRange = (x: number, y: number) => {
@@ -59,6 +61,7 @@ const Home = () => {
     const prevBoard = structuredClone(board);
     setPrev(prevBoard);
     setPrevColor(turnColor);
+    setPrevTurnCount(turnCount);
     blackCount = 0;
     whiteCount = 0;
 
@@ -79,7 +82,7 @@ const Home = () => {
 
               flag = 1;
               break;
-            }
+            } else if (boardRange(x_a, y_a) && newBoard[y_a][x_a] <= 0) break;
           }
         }
       }
