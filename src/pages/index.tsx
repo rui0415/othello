@@ -177,10 +177,10 @@ const Home = () => {
       </div>
       {pass && !endGame && (
         <div className={styles.pass} onClick={() => clickHandler(-2, -2)}>
-          Pass
+          パス
         </div>
       )}
-      {endGame && <div className={styles.endgame}>Game Set!!</div>}
+      {endGame && <div className={styles.endgame}>{black > white ? 'Black Win' : 'White Win'}</div>}
     </div>
   );
 };
